@@ -1,5 +1,9 @@
-﻿//Testing the git repository, do you read me?
-//test no.2
+﻿/*
+COMP 2129 - Advanced Object Orientated Programming - Final Project
+Janine Mae Usana - 
+Omar Nabi - 
+Otavio Pereira-Barbosa - 101337690
+*/
 
 
 using System;
