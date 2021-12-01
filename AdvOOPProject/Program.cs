@@ -27,13 +27,11 @@ namespace AdvOOPProject
             //Application.Run(new Form1());
 
             //testing the customer id:
-            //Customer customer1 = new Customer("Otavio", "Barbosa", "6475623407");
-            //Customer customer2 = new Customer("Otavio", "Barbosa", "6475623407");
-            //Customer customer3 = new Customer("Otavio", "Barbosa", "6475623407");
-            //Console.WriteLine(customer1);
-            //Console.WriteLine(customer2);
-            //Console.WriteLine(customer3);
-            //Console.Read();
+            CustomerManager cm = new CustomerManager(10);
+            cm.addAccount("otavio", "barbosa", "6475623407");
+            cm.addAccount("luciane", "11111111");
+
+            Console.Write(cm.ToString());
 
         }
     }

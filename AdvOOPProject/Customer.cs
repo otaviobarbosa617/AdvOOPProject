@@ -9,10 +9,10 @@ namespace AdvOOPProject
     class Customer
     {
 
-        private string fName;
-        private string lName;
-        private string phoneNum;
-        private string customerId;
+        protected string fName;
+        protected string lName;
+        protected string phoneNum;
+        protected string customerId;
         private Booking numBooked;
 
         public Customer(string fName, string lName, string phoneNum)
@@ -20,10 +20,22 @@ namespace AdvOOPProject
             if (string.IsNullOrEmpty(customerId))
             {
                 Guid newID = Guid.NewGuid();
-                customerId = newID.ToString();
+                customerId = newID.ToString("N");
             }
             this.fName = fName;
             this.lName = lName;
+            this.phoneNum = phoneNum;
+        }
+
+        public Customer(string fName, string phoneNum)
+        {
+            if (string.IsNullOrEmpty(customerId))
+            {
+                Guid newID = Guid.NewGuid();
+                customerId = newID.ToString("N");
+            }
+            this.fName = fName;
+            lName = "Not provided/Not existent";
             this.phoneNum = phoneNum;
         }
 
