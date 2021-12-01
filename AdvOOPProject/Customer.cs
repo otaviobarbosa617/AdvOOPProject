@@ -12,10 +12,10 @@ namespace AdvOOPProject
         private string fName;
         private string lName;
         private string phoneNum;
-        private Booking numBooked;
         private string customerId;
+        private Booking numBooked;
 
-        public Customer(string fName, string lName, string phoneNum, string customerId)
+        public Customer(string fName, string lName, string phoneNum)
         {
             if (string.IsNullOrEmpty(customerId))
             {
@@ -25,7 +25,6 @@ namespace AdvOOPProject
             this.fName = fName;
             this.lName = lName;
             this.phoneNum = phoneNum;
-            this.customerId = customerId;
         }
 
         // public Customer(string fName, string lName, string phoneNum, string numBooked)
@@ -48,11 +47,21 @@ namespace AdvOOPProject
         {
             return phoneNum;
         }
-
-        public int GetId()
+        public string GetId()
         {
-            
-            return customerID;
+            return customerId;
         }
+
+        public override string ToString()
+        {
+            string s = "Client INFO\n";
+            s += "--------------\n";
+            s += "ID: " + customerId;
+            s += "\nCustomer Name: " + fName;
+            s += "\nCustomer Last Name: " + lName;
+            s += "\nPhone Number: " + phoneNum;
+            return s;
+        }
+
     }
 }

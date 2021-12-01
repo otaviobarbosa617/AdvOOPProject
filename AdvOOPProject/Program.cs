@@ -22,9 +22,19 @@ namespace AdvOOPProject
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Form1());
+
+            //testing the customer id:
+            //Customer customer1 = new Customer("Otavio", "Barbosa", "6475623407");
+            //Customer customer2 = new Customer("Otavio", "Barbosa", "6475623407");
+            //Customer customer3 = new Customer("Otavio", "Barbosa", "6475623407");
+            //Console.WriteLine(customer1);
+            //Console.WriteLine(customer2);
+            //Console.WriteLine(customer3);
+            //Console.Read();
+
         }
     }
 }

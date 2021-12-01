@@ -45,7 +45,7 @@ namespace AdvOOPProject
         {
             for (int x = 0; x < maxSeats; x++)
             {
-                if (passengers[x].getId() == custId)
+                if (passengers[x].GetId().Equals(custId))
                     return x;
             }
             return -1;
@@ -65,12 +65,12 @@ namespace AdvOOPProject
             string s = "\nPassengers on flight " + flightNumber + ":";
             for (int x = 0; x < numPassengers; x++)
             {
-                s = s + "\n" + passengers[x].getFirstName() + " " + passengers[x].getLastName();
+                s = s + "\n" + passengers[x].GetFName() + " " + passengers[x].GetLName();
             }
             return s;
         }
 
-        public string toString()
+        public override string ToString()
         {
             string s = "Flight Number: " + flightNumber;
             s = s + "\nOrigin: " + origin;
