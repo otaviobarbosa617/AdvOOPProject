@@ -22,16 +22,10 @@ namespace AdvOOPProject
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainPage());
 
-            //testing the customer id:
-            CustomerManager cm = new CustomerManager(10);
-            cm.addAccount("otavio", "barbosa", "6475623407");
-            cm.addAccount("luciane", "11111111");
-
-            Console.Write(cm.ToString());
 
         }
     }
