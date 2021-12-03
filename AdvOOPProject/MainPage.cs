@@ -72,5 +72,17 @@ namespace AdvOOPProject
         {
             LoadPage(new ViewCustomers());
         }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form tmp = this.FindForm();
+            tmp.Close();
+            tmp.Dispose();
+        }
+
+        private void deleteCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadPage(new DeleteCustomerWindow());
+        }
     }
 }

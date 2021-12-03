@@ -14,13 +14,14 @@ namespace AdvOOPProject
 
         //TODO Method to remove customer from DB;
 
-        public CustomerManager()
+        public CustomerManager(int size)
         {
-            CustomerList = new List<Customer>();
+            CustomerList = new List<Customer>(size);
         }
 
         public void AddAccount(string firstName, string lastName, string phoneNumber)
         {
+       
                 CustomerList.Add(new Customer(firstName, lastName, phoneNumber));
 
         }
@@ -30,7 +31,6 @@ namespace AdvOOPProject
             CustomerList.Add(new Customer(firstName, phoneNumber));
 
         }
-
 
 
         public override string ToString()

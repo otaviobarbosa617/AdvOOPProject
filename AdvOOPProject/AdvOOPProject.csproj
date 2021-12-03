@@ -80,6 +80,12 @@
     <Compile Include="AddCustomer.Designer.cs">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleteCustomerWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteCustomerWindow.Designer.cs">
+      <DependentUpon>DeleteCustomerWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Flight.cs" />
     <Compile Include="FlightManager.cs" />
     <Compile Include="MainPage.cs">
@@ -98,6 +104,9 @@
     </Compile>
     <EmbeddedResource Include="AddCustomer.resx">
       <DependentUpon>AddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteCustomerWindow.resx">
+      <DependentUpon>DeleteCustomerWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>

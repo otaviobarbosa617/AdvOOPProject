@@ -31,9 +31,6 @@ namespace AdvOOPProject
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.flightsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bookingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +61,7 @@ namespace AdvOOPProject
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(911, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(862, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -72,38 +69,18 @@ namespace AdvOOPProject
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customersToolStripMenuItem,
-            this.flightsToolStripMenuItem,
-            this.bookingsToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(80, 20);
             this.toolStripMenuItem1.Text = "Main Menu";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
-            // customersToolStripMenuItem
-            // 
-            this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.customersToolStripMenuItem.Text = "Customers";
-            // 
-            // flightsToolStripMenuItem
-            // 
-            this.flightsToolStripMenuItem.Name = "flightsToolStripMenuItem";
-            this.flightsToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.flightsToolStripMenuItem.Text = "Flights";
-            // 
-            // bookingsToolStripMenuItem
-            // 
-            this.bookingsToolStripMenuItem.Name = "bookingsToolStripMenuItem";
-            this.bookingsToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.bookingsToolStripMenuItem.Text = "Bookings";
-            // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // customersToolStripMenuItem1
             // 
@@ -135,6 +112,7 @@ namespace AdvOOPProject
             this.deleteCustomerToolStripMenuItem.Name = "deleteCustomerToolStripMenuItem";
             this.deleteCustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteCustomerToolStripMenuItem.Text = "Delete Customer";
+            this.deleteCustomerToolStripMenuItem.Click += new System.EventHandler(this.deleteCustomerToolStripMenuItem_Click);
             // 
             // flightsToolStripMenuItem1
             // 
@@ -228,7 +206,7 @@ namespace AdvOOPProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 619);
+            this.ClientSize = new System.Drawing.Size(862, 520);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -246,9 +224,6 @@ namespace AdvOOPProject
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem flightsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bookingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addCustomerToolStripMenuItem;

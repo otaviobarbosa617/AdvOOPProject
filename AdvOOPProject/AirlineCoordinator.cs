@@ -9,9 +9,11 @@ namespace AdvOOPProject
     class AirlineCoordinator
     {
 
+        public CustomerManager custManager { get; set; }
+
         public AirlineCoordinator()
         {
-            CustomerManager custManager = new CustomerManager();
+            custManager = new CustomerManager(100);
         }
 
     }

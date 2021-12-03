@@ -23,7 +23,7 @@ namespace AdvOOPProject
         [STAThread]
         static void Main(string[] args)
         {
-            AirlineCoordinator adminCoord = new AirlineCoordinator();
+            new AirlineCoordinator();
             runProgram();
 
         }
@@ -57,7 +57,7 @@ namespace AdvOOPProject
             int userChoice;
             MainMenu();
             Console.WriteLine("Enter your choice:");
-            while (!int.TryParse(Console.ReadLine(), out userChoice) || (userChoice > 1 || userChoice < 12)) 
+            while (!int.TryParse(Console.ReadLine(), out userChoice) || (userChoice < 1 || userChoice > 12))
             {
                 MainMenu();
                 Console.WriteLine("\nPlease Enter a Valid choice:");
@@ -77,8 +77,7 @@ namespace AdvOOPProject
             int userChoice = GetUserChoice();
             if (userChoice == 1)
             {
-                Console.Clear();
-                AddCustomer();
+               
             }
             if (userChoice == 10)
             {
@@ -88,8 +87,16 @@ namespace AdvOOPProject
 
         public static void AddCustomer()
         {
-            
+            Console.Clear();
 
+            Console.WriteLine("XYZ Airlines System\n");
+            Console.WriteLine("Customer Menu - Add Customer\n");
+            Console.Write("First Name: ");
+            string firstName = Console.ReadLine();
+            Console.Write("\nLast Name: ");
+            string lastName = Console.ReadLine();
+            Console.Write("\nPhone Number: ");
+            string phoneNumber = Console.ReadLine();
             
         }
     }
