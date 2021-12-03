@@ -11,8 +11,10 @@ using System.Data.SqlClient;
 
 namespace AdvOOPProject
 {
-    public partial class AddCustomerWindow : Form
+    public partial class AddCustomerWindow : Form 
     {
+
+      
         //SQL
         SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CustomersDB.mdf;Integrated Security=True");
 
@@ -36,34 +38,86 @@ namespace AdvOOPProject
 
         }
 
+
         private void buttonAddCustomer_Click(object sender, EventArgs e)
         {
+            labelAddedCustomer.Hide();
+            CheckDB();
+            if (CheckDB() == false)
+            {
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                try
+                {
+                    cmd.CommandText = $"insert into Customers (firstName, lastName, phoneNumber) values ('{textBox_firstName.Text}', '{textBox_lastName.Text}', '{textBox_phoneNumber.Text}')";
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                cmd.ExecuteNonQuery();
+                textBox_firstName.Text = textBox_lastName.Text = textBox_phoneNumber.Text = "";
+                conn.Close();
+                labelSucessAdd();
+            }
+            
+
+        }
+
+        private bool CheckDB()
+        {
+            labelAddedCustomer.Hide();
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"insert into Customers (fistName, lastName, phoneNumber) values ('{textBox_firstName.Text}', '{textBox_lastName.Text}', '{textBox_phoneNumber.Text}')";
-            cmd.ExecuteNonQuery();
-            textBox_firstName.Text = textBox_lastName.Text = textBox_phoneNumber.Text = "";
-            conn.Close();
-            labelSucessAdd();
+            try
+            {
+                cmd.CommandText = $"Select count(*) from Customers where firstName = '{textBox_firstName.Text}' and lastName = '{textBox_lastName.Text}' and phoneNumber = '{textBox_phoneNumber.Text}'";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            Int32 userExists = (Int32) cmd.ExecuteScalar();
+            if (userExists > 0)
+            {
+                conn.Close();
+                labelAddedCustomer.Show();
+                labelAddedCustomer.Text = "Customer already on the Customer List - Press Clear Fields to re-tipe or check the list of Customer on the Customers Menu";
+                return true;
+            }
+            else
+            {
+                conn.Close();
+                return false;
+            }
 
         }
 
         private void labelSucessAdd()
         {
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"select MAX(customerId) AS LastID from Customers";
-            cmd.ExecuteNonQuery();
             labelAddedCustomer.Show();
-            labelAddedCustomer.Text = $"Customer Added with Success! ID: {cmd.ToString()}";
-            conn.Close();
+            labelAddedCustomer.Text = "Customer Added with Success!";
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
             labelAddedCustomer.Hide();
+        }
+
+        private void buttonClearFieds_Click(object sender, EventArgs e)
+        {
+            textBox_firstName.Text = textBox_lastName.Text = textBox_phoneNumber.Text = "";
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Form tmp = this.FindForm();
+            tmp.Close();
+            tmp.Dispose();
         }
     }
 }

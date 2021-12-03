@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace AdvOOPProject
 {
     class Customer
     {
+        //SQL Connection
+        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CustomersDB.mdf;Integrated Security=True");
 
         protected string fName;
         protected string lName;
@@ -17,11 +20,6 @@ namespace AdvOOPProject
 
         public Customer(string fName, string lName, string phoneNum)
         {
-            if (string.IsNullOrEmpty(customerId))
-            {
-                Guid newID = Guid.NewGuid();
-                customerId = newID.ToString("N");
-            }
             this.fName = fName;
             this.lName = lName;
             this.phoneNum = phoneNum;

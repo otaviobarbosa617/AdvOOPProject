@@ -117,6 +117,7 @@ namespace AdvOOPProject
             this.buttonClearFieds.TabIndex = 14;
             this.buttonClearFieds.Text = "Clear Fields";
             this.buttonClearFieds.UseVisualStyleBackColor = true;
+            this.buttonClearFieds.Click += new System.EventHandler(this.buttonClearFieds_Click);
             // 
             // buttonCancel
             // 
@@ -127,6 +128,7 @@ namespace AdvOOPProject
             this.buttonCancel.TabIndex = 15;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // labelAddedCustomer
             // 
