@@ -81,10 +81,10 @@ namespace AdvOOPProject
             {
                 cmd.CommandText = $"Select count(*) from Customers where firstName = '{firstName}' and lastName = '{lastName}' and phoneNumber = '{phoneNumber}'";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Console.WriteLine(ex.Message);
             }
             Int32 userExists = (Int32)cmd.ExecuteScalar();
             if (userExists > 0)
@@ -109,12 +109,13 @@ namespace AdvOOPProject
             {
                 cmd.CommandText = $"Select customerId from Customers where firstName = '{firstName}' and lastName = '{lastName}' and phoneNumber = '{phoneNumber}'";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Console.WriteLine(ex.Message);
             }
             string s = cmd.ExecuteScalar().ToString();
+            conn.Close();
             return s;
 
         }
