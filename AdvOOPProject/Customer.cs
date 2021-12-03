@@ -31,10 +31,10 @@ namespace AdvOOPProject
                 {
                     cmd.CommandText = $"insert into Customers (firstName, lastName, phoneNumber) values ('{firstName}', '{lastName}', '{phoneNumber}')";
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
 
-                    throw;
+                    Console.WriteLine(ex.Message);
                 }
                 cmd.ExecuteNonQuery();
                 conn.Close();
@@ -58,10 +58,10 @@ namespace AdvOOPProject
                 {
                     cmd.CommandText = $"insert into Customers (firstName, phoneNumber) values ('{firstName}', '{phoneNumber}')";
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
 
-                    throw;
+                    Console.WriteLine(ex.Message);
                 }
                 cmd.ExecuteNonQuery();
                 conn.Close();

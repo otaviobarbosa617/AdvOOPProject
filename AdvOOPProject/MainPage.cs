@@ -14,7 +14,7 @@ namespace AdvOOPProject
     {
         public MainPage()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
 
         //This method clears the panel and then call the new window/form to inside the panel

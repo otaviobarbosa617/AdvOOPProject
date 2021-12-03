@@ -9,55 +9,43 @@ namespace AdvOOPProject
 {
     class CustomerManager
     {
-        private int numAccounts;
-        private int maxAccounts;
-        private Customer[] customersList;
+        public List<Customer> CustomerList { get; set; }
 
 
         //TODO Method to remove customer from DB;
 
-        public CustomerManager(int maxAccounts)
+        public CustomerManager()
         {
-            numAccounts = 0;
-            this.maxAccounts = maxAccounts;
-            customersList = new Customer[maxAccounts];
+            CustomerList = new List<Customer>();
         }
 
-        public bool addAccount(string firstName, string lastName, string phoneNum)
+        public void AddAccount(string firstName, string lastName, string phoneNumber)
         {
-            if (numAccounts < maxAccounts)
-            {
-                customersList[numAccounts] = new Customer(firstName, lastName, phoneNum);
-                numAccounts++;
-                return true;
-            }
-            return false;
+                CustomerList.Add(new Customer(firstName, lastName, phoneNumber));
+
         }
 
-        public bool addAccount(string fName, string phoneNum)
+        public void AddAccount(string firstName, string phoneNumber)
         {
-            if (numAccounts < maxAccounts)
-            {
-                customersList[numAccounts] = new Customer(fName, phoneNum);
-                numAccounts++;
-                return true;
-            }
-            return false;
+            CustomerList.Add(new Customer(firstName, phoneNumber));
+
         }
+
+
 
         public override string ToString()
             //TODO This method should connect to the DB and retrive all
         {
-            if (numAccounts == 0)
+            if (CustomerList.Count == 0)
             {
                 return "There are no Clients on file";
             }
             else
             {
                 string s = "Clients List:\n";
-                for (int i = 0; i < numAccounts; i++)
+                for (int i = 0; i < CustomerList.Count; i++)
                 {
-                    s += customersList[i].ToString() + "\n";
+                    s += CustomerList[i].ToString() + "\n";
                 }
                 return s;
             }
