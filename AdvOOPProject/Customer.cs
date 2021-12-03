@@ -16,7 +16,7 @@ namespace AdvOOPProject
         protected string lastName;
         protected string phoneNumber;
         protected string customerId;
-        private Booking numBooked;
+        private string booked;
 
         public Customer(string firstName, string lastName, string phoneNumber)
         {
@@ -41,7 +41,7 @@ namespace AdvOOPProject
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.phoneNumber = phoneNumber;
-                customerId = CustomerIdDb();
+                customerId = CustomerIdDb();;
             }
         }
 
@@ -68,7 +68,7 @@ namespace AdvOOPProject
                 this.firstName = firstName;
                 lastName = "Not provided/Not existent";
                 this.phoneNumber = phoneNumber;
-                customerId = CustomerIdDb();
+                customerId = CustomerIdDb();;
             }
         }
 
@@ -109,10 +109,10 @@ namespace AdvOOPProject
             {
                 cmd.CommandText = $"Select customerId from Customers where firstName = '{firstName}' and lastName = '{lastName}' and phoneNumber = '{phoneNumber}'";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                Console.WriteLine(ex.Message);
+                throw;
             }
             string s = cmd.ExecuteScalar().ToString();
             conn.Close();
@@ -144,6 +144,7 @@ namespace AdvOOPProject
         {
             return customerId;
         }
+
 
         public override string ToString()
         {

@@ -23,9 +23,18 @@ namespace AdvOOPProject
         [STAThread]
         static void Main(string[] args)
         {
-            new AirlineCoordinator();
-            runProgram();
+            //Uncomment this to show the actual state of program with menus and all:
+            //new AirlineCoordinator();
+            //runProgram();
 
+            //Uncomment this to test the customerManager and the db connections
+            //CustomerManager cm1 = new CustomerManager(100);
+            //cm1.AddAccount("Test", "Test", "Test");
+            //cm1.AddAccount("Otavio", "Test", "Test");
+            //cm1.AddAccount("Janine", "Test", "Test");
+            //cm1.AddAccount("Omar", "Test", "Test");
+            //Console.WriteLine(cm1.ToString());
+            //Console.ReadKey();
         }
 
         private static void MainMenu()
@@ -77,7 +86,7 @@ namespace AdvOOPProject
             int userChoice = GetUserChoice();
             if (userChoice == 1)
             {
-               
+                AddCustomer();
             }
             if (userChoice == 10)
             {
@@ -88,7 +97,6 @@ namespace AdvOOPProject
         public static void AddCustomer()
         {
             Console.Clear();
-
             Console.WriteLine("XYZ Airlines System\n");
             Console.WriteLine("Customer Menu - Add Customer\n");
             Console.Write("First Name: ");
@@ -97,7 +105,8 @@ namespace AdvOOPProject
             string lastName = Console.ReadLine();
             Console.Write("\nPhone Number: ");
             string phoneNumber = Console.ReadLine();
-            
         }
+
+
     }
 }
