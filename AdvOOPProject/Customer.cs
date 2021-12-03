@@ -16,7 +16,7 @@ namespace AdvOOPProject
         protected string lastName;
         protected string phoneNumber;
         protected string customerId;
-        private string booked;
+        private int bookings;
 
         public Customer(string firstName, string lastName, string phoneNumber)
         {
@@ -41,7 +41,8 @@ namespace AdvOOPProject
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.phoneNumber = phoneNumber;
-                customerId = CustomerIdDb();;
+                customerId = CustomerIdDb();
+                bookings = 0;
             }
         }
 
@@ -68,7 +69,8 @@ namespace AdvOOPProject
                 this.firstName = firstName;
                 lastName = "Not provided/Not existent";
                 this.phoneNumber = phoneNumber;
-                customerId = CustomerIdDb();;
+                customerId = CustomerIdDb();
+                bookings = 0;
             }
         }
 
@@ -120,6 +122,26 @@ namespace AdvOOPProject
 
         }
 
+        //private int CustomerBookings()
+        //{
+        //    conn.Open();
+        //    SqlCommand cmd = conn.CreateCommand();
+        //    cmd.CommandType = System.Data.CommandType.Text;
+        //    try
+        //    {
+        //        cmd.CommandText = $"Select booking from Customers where firstName = '{firstName}' and lastName = '{lastName}' and phoneNumber = '{phoneNumber}'";
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //    int s = Convert.ToInt32(cmd.ExecuteScalar());
+        //    conn.Close();
+        //    return s;
+
+        //}
+
         // public Customer(string fName, string lName, string phoneNum, string numBooked)
         //    {
         //        this.fName = fName;
@@ -145,6 +167,11 @@ namespace AdvOOPProject
             return customerId;
         }
 
+        public int GetNumberOfBookings()
+        {
+            return bookings;
+        }
+
 
         public override string ToString()
         {
@@ -154,6 +181,7 @@ namespace AdvOOPProject
             s += "\nCustomer Name: " + firstName;
             s += "\nCustomer Last Name: " + lastName;
             s += "\nPhone Number: " + phoneNumber;
+            s += "\nBookings:" + bookings;
             return s;
         }
     }

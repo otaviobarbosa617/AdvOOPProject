@@ -1,6 +1,4 @@
-﻿/* Starting Code Made by Prof */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,12 +15,12 @@ namespace AdvOOPProject
         private int numPassengers;
         private Customer[] passengers;
 
-        public Flight(int fn, string or, string dest, int mSeats)
+        public Flight(int flightNumber, string origin, string destination, int maxSeats)
         {
-            maxSeats = mSeats;
-            flightNumber = fn;
-            origin = or;
-            destination = dest;
+            this.flightNumber = flightNumber;
+            this.origin = origin;
+            this.destination = destination;
+            this.maxSeats = maxSeats;
             numPassengers = 0;
             passengers = new Customer[maxSeats];
         }
@@ -68,6 +66,15 @@ namespace AdvOOPProject
                 s = s + "\n" + passengers[x].GetFirstName() + " " + passengers[x].GetLastName();
             }
             return s;
+        }
+
+        public bool IsFull()
+        {
+            if (numPassengers >= maxSeats)
+            {
+                return true;
+            }
+            return false;
         }
 
         public override string ToString()

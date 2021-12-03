@@ -45,6 +45,8 @@ namespace AdvOOPProject
             return false;
         }
 
+        
+
         //This method to retrive all data from the table works but for know I don't know how to make it pretty like the ToString() one
         public void AllClientsDB()
         {

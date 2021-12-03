@@ -15,26 +15,99 @@ using System.Windows.Forms;
 
 namespace AdvOOPProject
 {
-    static class Program
+    class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main(string[] args)
-        {
-            //Uncomment this to show the actual state of program with menus and all:
-            //new AirlineCoordinator();
-            //runProgram();
+        static AirlineCoordinator coordinator;
 
-            //Uncomment this to test the customerManager and the db connections
-            //CustomerManager cm1 = new CustomerManager(100);
-            //cm1.AddAccount("Test", "Test", "Test");
-            //cm1.AddAccount("Otavio", "Test", "Test");
-            //cm1.AddAccount("Janine", "Test", "Test");
-            //cm1.AddAccount("Omar", "Test", "Test");
-            //Console.WriteLine(cm1.ToString());
-            //Console.ReadKey();
+        public static void DeleteFlight()
+        {
+            int flightID;
+            Console.Clear();
+            Console.WriteLine(coordinator.FlightList());
+            Console.WriteLine("Please Enter a Fligth ID to delete it:");
+            flightID = Convert.ToInt32(Console.ReadLine());
+            if (coordinator.DeleteFlight(flightID))
+            {
+                Console.WriteLine($"Flight ID {flightID} deleted.");
+            }
+            else
+            {
+                Console.WriteLine($"Flight ID {flightID} not found");
+            }
+            Console.WriteLine("\nPress any key to return");
+            Console.ReadKey();
+        }
+
+        public static void AddFlight()
+        {
+            int flightNumber, maxSeats;
+            string origin, destination;
+
+            Console.Clear();
+            Console.WriteLine("\nAdd Flight:\n");
+            Console.Write("Flight Number: ");
+            flightNumber = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Maximum number of seats: ");
+            maxSeats = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Origin: ");
+            origin = Console.ReadLine();
+            Console.Write("Destination: ");
+            destination = Console.ReadLine();
+            if (coordinator.AddFlight(flightNumber,origin,destination,maxSeats))
+            {
+                Console.WriteLine("\nFlight added with sucess");
+            }
+            else
+            {
+                Console.WriteLine("\nFlight was not added");
+            }
+            Console.WriteLine("Press any key to return");
+            Console.ReadKey();
+
+        }
+
+        public static void ViewFlights()
+        {
+            Console.Clear();
+            Console.WriteLine(coordinator.FlightList());
+            Console.WriteLine("\nPress any key to return");
+            Console.ReadKey();
+        }
+
+        public static void ViewFligth()
+        {
+            int flightID;
+            Console.Clear();
+            Console.Write("Enter the flight ID to retrive info:");
+            flightID = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(coordinator.ViewFligth(flightID).ToString());
+            Console.WriteLine("\nPress any key to return");
+            Console.ReadKey();
+        }
+
+        public static void AddCustomer()
+        {
+            string firstName, lastName, phoneNumber;
+            Console.Clear();
+            Console.WriteLine("Customer Menu - Add Customer\n");
+            Console.Write("First Name: ");
+            firstName = Console.ReadLine();
+            Console.Write("\nLast Name: ");
+            lastName = Console.ReadLine();
+            Console.Write("\nPhone Number: ");
+            phoneNumber = Console.ReadLine();
+            Console.WriteLine(coordinator.AddCustomer(firstName, lastName, phoneNumber));
+            Console.WriteLine("\nPress any key to return");
+            Console.ReadKey();
+        }
+
+        public static void ViewCustomers()
+        {
+            Console.Clear();
+            Console.WriteLine("Customer Menu - View All Customers\n");
+            Console.WriteLine(coordinator.ViewCustomers());
+            Console.WriteLine("\nPress any key to return");
+            Console.ReadKey();
         }
 
         private static void MainMenu()
@@ -74,38 +147,83 @@ namespace AdvOOPProject
             return userChoice;
         }
 
+        public static void runProgram()
+        {
+            int userChoice = GetUserChoice();
+
+            while (userChoice != 0 || userChoice !=10 )
+            {
+                if (userChoice == 1)
+                {
+                    AddCustomer();
+                }
+                if (userChoice == 2)
+                {
+                    ViewCustomers();
+                }
+
+
+                if (userChoice == 4)
+                {
+                    AddFlight();
+                }
+                if (userChoice == 5)
+                {
+                    ViewFlights();
+                }
+                if (userChoice == 6)
+                {
+                    ViewFligth();
+                }
+                if (userChoice == 7)
+                {
+                    DeleteFlight();
+                }
+                if (userChoice == 10)
+                {
+                    GuiApplication();
+                }
+                userChoice = GetUserChoice();
+            }
+
+
+        }
         private static void GuiApplication()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainPage());
         }
-
-        public static void runProgram()
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main(string[] args)
         {
-            int userChoice = GetUserChoice();
-            if (userChoice == 1)
-            {
-                AddCustomer();
-            }
-            if (userChoice == 10)
-            {
-                GuiApplication();
-            }
+            //Uncomment this to show the actual state of program with menus and all:
+            coordinator = new AirlineCoordinator(1, 200, 200);
+            runProgram();
+
+            //Uncomment this to test the customerManager and the db connections
+            //CustomerManager cm1 = new CustomerManager(100);
+            //cm1.AddAccount("Test", "Test", "Test");
+            //cm1.AddAccount("Otavio", "Test", "Test");
+            //cm1.AddAccount("Janine", "Test", "Test");
+            //cm1.AddAccount("Omar", "Test", "Test");
+            //Flight flight1 = new Flight(1212, "YYZ", "YUL", 100);
+            //Console.WriteLine(flight1.ToString());
+            //Console.ReadKey();
         }
 
-        public static void AddCustomer()
-        {
-            Console.Clear();
-            Console.WriteLine("XYZ Airlines System\n");
-            Console.WriteLine("Customer Menu - Add Customer\n");
-            Console.Write("First Name: ");
-            string firstName = Console.ReadLine();
-            Console.Write("\nLast Name: ");
-            string lastName = Console.ReadLine();
-            Console.Write("\nPhone Number: ");
-            string phoneNumber = Console.ReadLine();
-        }
+        
+
+
+
+
+
+
+
+
 
 
     }

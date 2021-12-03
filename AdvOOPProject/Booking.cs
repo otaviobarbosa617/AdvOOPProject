@@ -8,7 +8,21 @@ namespace AdvOOPProject
 {
     class Booking
     {
+        private int numBooking;
+        private int maxBooking;
+        private Customer[] customerBooking;
 
+        public Booking(int maxBooking)
+        {
+            numBooking = 0;
+            this.maxBooking = maxBooking;
+            customerBooking = new Customer[maxBooking];
+        }
+
+        public bool AddBooking()
+        {
+
+        }
 
     }
 
