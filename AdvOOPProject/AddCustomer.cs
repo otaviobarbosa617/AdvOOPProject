@@ -14,7 +14,6 @@ namespace AdvOOPProject
     public partial class AddCustomerWindow : Form 
     {
 
-      
         //SQL
         SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CustomersDB.mdf;Integrated Security=True");
 
