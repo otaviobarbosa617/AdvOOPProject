@@ -13,6 +13,9 @@ namespace AdvOOPProject
         private int maxAccounts;
         private Customer[] customersList;
 
+
+        //TODO Method to remove customer from DB;
+
         public CustomerManager(int maxAccounts)
         {
             numAccounts = 0;
@@ -43,6 +46,7 @@ namespace AdvOOPProject
         }
 
         public override string ToString()
+            //TODO This method should connect to the DB and retrive all
         {
             if (numAccounts == 0)
             {
