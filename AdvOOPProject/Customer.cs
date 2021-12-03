@@ -15,7 +15,7 @@ namespace AdvOOPProject
         protected string firstName;
         protected string lastName;
         protected string phoneNumber;
-        protected string customerId;
+        protected int customerId;
         private int bookings;
 
         public Customer(string firstName, string lastName, string phoneNumber)
@@ -102,7 +102,7 @@ namespace AdvOOPProject
 
         }
 
-        private string CustomerIdDb()
+        private int CustomerIdDb()
         {
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
@@ -116,7 +116,7 @@ namespace AdvOOPProject
 
                 throw;
             }
-            string s = cmd.ExecuteScalar().ToString();
+            Int32 s = Convert.ToInt32(cmd.ExecuteScalar());
             conn.Close();
             return s;
 
@@ -162,7 +162,7 @@ namespace AdvOOPProject
         {
             return firstName;
         }
-        public string GetCustomerId()
+        public int GetCustomerId()
         {
             return customerId;
         }

@@ -48,5 +48,10 @@ namespace AdvOOPProject
             return customerManager.ToString();
         }
 
+        public bool DeleteCustomer(int customerId)
+        {
+            return customerManager.DeleteCustomer(customerId);
+        }
+
     }
 }

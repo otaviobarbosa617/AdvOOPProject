@@ -16,7 +16,7 @@ namespace AdvOOPProject
         {
             numBooking = 0;
             this.maxBooking = maxBooking;
-            bookList = new Customer[maxBooking];
+            bookList = new Booking[maxBooking];
         }
 
         public bool addBooking(Customer c, Flight f)

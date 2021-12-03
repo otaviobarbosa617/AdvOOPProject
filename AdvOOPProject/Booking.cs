@@ -11,6 +11,7 @@ namespace AdvOOPProject
         private int numBooking;
         private int maxBooking;
         private Customer[] customerBooking;
+        private string date;
 
         public Booking(int maxBooking)
         {
@@ -19,8 +20,9 @@ namespace AdvOOPProject
             customerBooking = new Customer[maxBooking];
         }
 
-        public bool AddBooking()
+        public bool AddBooking(string date;)
         {
+            string date = DateTime.Now.ToString(@"MM\/dd\/yyyy h\:mm tt");
 
         }
 

@@ -45,9 +45,40 @@ namespace AdvOOPProject
             return false;
         }
 
-        
+        public int FindCustomer(int customerId)
+        {
+            for (int i = 0; i < numAccounts; i++)
+            {
+                if (customersList[i].GetCustomerId() == customerId)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        public bool DeleteCustomer(int customerId)
+        {
+            int loc = FindCustomer(customerId);
+            if (loc == 1)
+            {
+                return false;
+            }
+            customersList[loc] = customersList[numAccounts - 1];
+            numAccounts--;
+            return true;
+        }
 
-        //This method to retrive all data from the table works but for know I don't know how to make it pretty like the ToString() one
+        public Customer CustomerExists(int customerId)
+        {
+        int loc = FindCustomer(customerId);
+        if (customerId == -1)
+        {
+            return null;
+        }
+        return customersList[loc];
+        }
+
+        //This method to retrive all data from the table works but I don't know how to make it pretty like the ToString() one
         public void AllClientsDB()
         {
             conn.Open();

@@ -96,7 +96,14 @@ namespace AdvOOPProject
             lastName = Console.ReadLine();
             Console.Write("\nPhone Number: ");
             phoneNumber = Console.ReadLine();
-            Console.WriteLine(coordinator.AddCustomer(firstName, lastName, phoneNumber));
+            if (coordinator.AddCustomer(firstName, lastName, phoneNumber))
+            {
+                Console.WriteLine("\nCustomer added!");
+            }
+            else
+            {
+                Console.WriteLine("\nCustomer not added!");
+            }
             Console.WriteLine("\nPress any key to return");
             Console.ReadKey();
         }
@@ -106,6 +113,26 @@ namespace AdvOOPProject
             Console.Clear();
             Console.WriteLine("Customer Menu - View All Customers\n");
             Console.WriteLine(coordinator.ViewCustomers());
+            Console.WriteLine("\nPress any key to return");
+            Console.ReadKey();
+        }
+
+        public static void DeleteCustomer()
+        {
+            int customerId;
+            Console.Clear();
+            Console.WriteLine("Customer Menu - Delete Customer\n");
+            Console.Write("Enter customer ID to be deleted: ");
+            customerId = Convert.ToInt32(Console.ReadLine());
+            if (coordinator.DeleteCustomer(customerId))
+            {
+                Console.WriteLine("\nCustomer deleted!");
+            }
+            else
+            {
+                Console.WriteLine("\nCustomer not deleted!");
+            }
+            
             Console.WriteLine("\nPress any key to return");
             Console.ReadKey();
         }
@@ -161,7 +188,10 @@ namespace AdvOOPProject
                 {
                     ViewCustomers();
                 }
-
+                if (userChoice == 3)
+                {
+                    DeleteCustomer();
+                }
 
                 if (userChoice == 4)
                 {
@@ -203,16 +233,6 @@ namespace AdvOOPProject
             //Uncomment this to show the actual state of program with menus and all:
             coordinator = new AirlineCoordinator(1, 200, 200);
             runProgram();
-
-            //Uncomment this to test the customerManager and the db connections
-            //CustomerManager cm1 = new CustomerManager(100);
-            //cm1.AddAccount("Test", "Test", "Test");
-            //cm1.AddAccount("Otavio", "Test", "Test");
-            //cm1.AddAccount("Janine", "Test", "Test");
-            //cm1.AddAccount("Omar", "Test", "Test");
-            //Flight flight1 = new Flight(1212, "YYZ", "YUL", 100);
-            //Console.WriteLine(flight1.ToString());
-            //Console.ReadKey();
         }
 
         
