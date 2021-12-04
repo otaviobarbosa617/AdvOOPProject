@@ -11,20 +11,26 @@ namespace AdvOOPProject
         private int numBooking;
         private int maxBooking;
         private Customer[] customerBooking;
+        private Flight[] flightsBooking;
         private string date;
 
-        public Booking(int maxBooking)
+        public Booking(int maxBooking, string date, Customer c, Flight f )
         {
             numBooking = 0;
             this.maxBooking = maxBooking;
             customerBooking = new Customer[maxBooking];
+            flightsBooking = new Flight[maxBooking];
+            this.date = date;
+        
         }
 
-        public bool AddBooking(string date;)
-        {
-            string date = DateTime.Now.ToString(@"MM\/dd\/yyyy h\:mm tt");
+        //TODO - Finish the booking Class
 
-        }
+        //public bool AddBooking(string date, Customer c, Flight f)
+        //{
+        //    date = DateTime.Now.ToString(@"MM\/dd\/yyyy h\:mm tt");
+
+        //}
 
     }
 
